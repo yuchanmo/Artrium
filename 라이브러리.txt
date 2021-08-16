@@ -1,0 +1,9 @@
+1. components
+https://reactnativeelements.com/docs/
+
+2. design 
+1) builder x : https://builderx.io/app/pn6pp4v8t8g08cc8scw0co8c0kc4cc
+2) figma :
+
+3. splash / icon : https://github.com/bamlab/react-native-make
+ - react-native make
