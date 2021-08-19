@@ -190,14 +190,16 @@ const ArtistInfo = ({artist, style}: Props) => {
       <View style={[styles.rect, style]}>
         <View style={styles.imageRow}>
           <Image
-            source={artist.PictureUrl}
+            source={require('../../../../../samples/images/artists/mun.png')}
             resizeMode="cover"
             style={styles.image}></Image>
           <View style={styles.textStackStack}>
             <View style={styles.textStack}>
               <Text style={styles.text}>{artist.KorName}</Text>
               <View style={styles.iconStack}>
-              
+                <IoniconsIcon
+                  name="ios-arrow-down"
+                  style={styles.icon}></IoniconsIcon>
                 <Text style={styles.text4}>{artist.Summary}</Text>
                 <View style={styles.rect2}>
                   <View style={styles.rect3}>
@@ -227,7 +229,9 @@ const ArtistInfo = ({artist, style}: Props) => {
                   <EvilIconsIcon
                     name="share-google"
                     style={styles.icon5}></EvilIconsIcon>
-                  
+                  <IoniconsIcon
+                    name="ios-stats"
+                    style={styles.icon6}></IoniconsIcon>
                 </View>
               </View>
             </View>

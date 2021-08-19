@@ -49,71 +49,31 @@ const styles = StyleSheet.create(
 );
 
 const samples:Array<ArtistInformation> = [
-  {
+ 
+{
   KorName:'문형태',
   EngName:'Mun',
-  PictureUrl:'../../../../samples/images/artists/mun.png',
+  PictureUrl:require('./mun.png'),
   Summary:'짱짱맨',
   DetailInformation:'이보다 더 짱짱맨',
   UpdateDate:'2021-08-17',
   ArtList:[{
-    ImageUrl:'../../../../samples/images/artists/mun.png',
+    ImageUrl:require('./mun.png'),
     Material:'print',
   EstimatePrice:1000000,
 Size:'150x150',
 Title:'이것은 무엇인가'}]
 },
+
 {
   KorName:'문형태',
   EngName:'Mun',
-  PictureUrl:'../../../../samples/images/artists/mun.png',
+  PictureUrl:require('./mun.png'),
   Summary:'짱짱맨',
   DetailInformation:'이보다 더 짱짱맨',
   UpdateDate:'2021-08-17',
   ArtList:[{
-    ImageUrl:'../../../../samples/images/artists/mun.png',
-    Material:'print',
-  EstimatePrice:1000000,
-Size:'150x150',
-Title:'이것은 무엇인가'}]
-},
-{
-  KorName:'문형태',
-  EngName:'Mun',
-  PictureUrl:'../../../../samples/images/artists/mun.png',
-  Summary:'짱짱맨',
-  DetailInformation:'이보다 더 짱짱맨',
-  UpdateDate:'2021-08-17',
-  ArtList:[{
-    ImageUrl:'../../../../samples/images/artists/mun.png',
-    Material:'print',
-  EstimatePrice:1000000,
-Size:'150x150',
-Title:'이것은 무엇인가'}]
-},
-{
-  KorName:'문형태',
-  EngName:'Mun',
-  PictureUrl:'../../../../samples/images/artists/mun.png',
-  Summary:'짱짱맨',
-  DetailInformation:'이보다 더 짱짱맨',
-  UpdateDate:'2021-08-17',
-  ArtList:[{
-    ImageUrl:'../../../../samples/images/artists/mun.png',
-    Material:'print',
-  EstimatePrice:1000000,
-Size:'150x150',
-Title:'이것은 무엇인가'}]
-},
-{
-  KorName:'문형태',
-  EngName:'Mun',
-  PictureUrl:'../../../../samples/images/artists/mun.png',
-  Summary:'짱짱맨',
-  DetailInformation:'이보다 더 짱짱맨',
-  UpdateDate:'2021-08-17',
-  ArtList:[{
-    ImageUrl:'../../../../samples/images/artists/mun.png',
+    ImageUrl:require('./mun.png'),
     Material:'print',
   EstimatePrice:1000000,
 Size:'150x150',
@@ -139,8 +99,8 @@ const ArtistList = ({}) =>{
           
           <FlatList
             data={samples}
-            renderItem={(i)=><><ArtistInfo
-              artist={i}
+            renderItem={({index,item})=><><ArtistInfo
+              artist={item}
               style={styles.tweet}
            ></ArtistInfo>
            <Divider style={styles.divider}></Divider></>}

@@ -7,3 +7,6 @@ https://reactnativeelements.com/docs/
 
 3. splash / icon : https://github.com/bamlab/react-native-make
  - react-native make
+
+4. react-native-vector-icon 
+ - 깨짐현상 : https://yannichoongs.tistory.com/260

@@ -61,7 +61,7 @@ const App: () => Node = () => {
 
   useEffect(()=>{
     SplashScreen.hide();
-  });
+  },[]);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
