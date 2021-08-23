@@ -1,8 +1,8 @@
 import React,{useState,useEffect, useLayoutEffect} from 'react';
-import { Text, View,StyleSheet, ScrollView, SafeAreaView, FlatList } from 'react-native';
+import { Text, View,StyleSheet, ScrollView, SafeAreaView, FlatList, Alert } from 'react-native';
 import { SearchBar,Divider } from 'react-native-elements';
 import ArtistInfo from './ArtistInfo';
-
+import RNFetchBlob from 'rn-fetch-blob'
 
 const styles = StyleSheet.create(
     ({
@@ -82,8 +82,25 @@ Title:'이것은 무엇인가'}]
 ];
 
 const ArtistList = ({}) =>{
-
+    let [test,setTest] = useState<string>('HelloHelo');
     let [serachingName,setSearchingName] = useState<string>('');
+
+    const getData = async () =>{
+      //let res = await RNFetchBlob.fetch('GET', 'http:/20.85.245.228:9999');
+      let res = await fetch('http:/20.85.245.228:9999');
+      let d = await res.json();
+      Alert.alert('testset',d)
+      // setTest(d);
+      
+      // else{
+      //   Alert.alert('fail','load fail')
+      // }
+    };
+
+    useEffect(()=>{
+      getData();
+
+    },[]);
     return (
         <>
         <View style={styles.searchbox}>
@@ -93,6 +110,7 @@ const ArtistList = ({}) =>{
             onChangeText={(v)=>{setSearchingName(v)}}
             ></SearchBar>
         </View>
+        <Text>{test}</Text>
         <View style={styles.artistlistContainer}>
         <SafeAreaView style={styles.container}>
           
