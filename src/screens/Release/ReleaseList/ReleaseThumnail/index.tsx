@@ -5,19 +5,30 @@ import {
   TouchableOpacity,
   Text,
   Image,
-  ImageBackground
+  ImageBackground,
+  Alert
 } from "react-native";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-
+import CountDown from 'react-native-countdown-component';
 
 const styles = StyleSheet.create({
   container:{
+    flex:1,
+    width:'100%',
+    
     margin: 3,
   },
+  releaseInfoContainer:{
+    height:40,
+    flexDirection:'row'
+  },
+  releaseTitle:{
+
+  },
   button2: {
-    width: 150,
-    height: 150,
+    width:'100%',
+    height:250,
     backgroundColor: "rgba(230, 230, 230,1)",
     elevation: 18,
     borderRadius: 5,
@@ -41,44 +52,52 @@ const styles = StyleSheet.create({
       fontSize: 14,
       alignSelf: "center"
     },
+    countDown: {                 
+      width: 100,
+      height: 80,      
+      position:'absolute',
+     bottom:0,
+     right:70
+    },
   });
   
 interface Props{
     ArtInfo : ArtDisplayInfo;
     onPress :()=>{}|undefined;
-    navigation:NativeStackScreenProps<ArtistStackParamList,"Favorite">;    
-
+    
 };
 
 // {ArtInfo}:Props
 
-const ArtDisplay = ({ArtInfo,onPress, navigation}:Props) =>{
+const ReleaseThumnail = ({ArtInfo,onPress}:Props) =>{
+    let timeRandom :number =Math.floor(Math.random() * 1001);
 
-    let imgPressFunction = onPress !== undefined ? onPress : () => {navigation.navigate('ArtDetail',{Info:ArtInfo})};
+    
+    let imgPressFunction = onPress !== undefined ? onPress : () => {};
     return (
         <>
         <View style={styles.container}>
-        <TouchableOpacity style={styles.button2} onPress={imgPressFunction}>
-              {/* <ImageBackground
-                source={ArtInfo.ImageUrl}
-                resizeMode="cover"
-                style={styles.image}
-                imageStyle={styles.image_imageStyle}
-              > */}
+          <View style={styles.releaseInfoContainer}>
+              <Text>NAME</Text>
+              <Text>dATe</Text>
+          </View>
+        <TouchableOpacity style={styles.button2} onPress={imgPressFunction}>       
+           
               <ImageBackground
                 source={{uri:ArtInfo.image_url}}
                 resizeMode="cover"
                 style={styles.image}
                 imageStyle={styles.image_imageStyle}
-              >
-                <View style={styles.rect8Filler}></View>
-                <View style={styles.rect8}>
-                   <Text style={styles.text22}>{ArtInfo.artist_name_kor}</Text>
-                  <Text style={styles.text22}>{ArtInfo.make_year}</Text>
-                  <Text style={styles.text22}>{ArtInfo.money}</Text>
-                  
-                </View>
+              >          
               </ImageBackground>
+              <View>
+                <CountDown style={styles.countDown}
+                    until={timeRandom}
+                    
+                    size={20}
+                  />
+                </View>
+             
             </TouchableOpacity>
         </View>
         </>
@@ -87,4 +106,4 @@ const ArtDisplay = ({ArtInfo,onPress, navigation}:Props) =>{
 }
 
 
-export default ArtDisplay;
+export default ReleaseThumnail;

@@ -49,11 +49,8 @@ const Navigation = ()=> {
         tabBarInactiveTintColor: 'gray',
         headerShown: false
       })}>
-
-
         <Tab.Screen name="Artist" component={Artist} />
-        <Tab.Screen name="Notice" component={Release} />
-        
+        <Tab.Screen name="Release" component={Release} />        
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Art" component={Art} />
         <Tab.Screen name="My" component={My} />       

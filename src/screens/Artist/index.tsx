@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-
+import ArtDetail from '~/components/ArtDetail';
 import ArtistDetail from './ArtistDetail';
 import ArtistList from './ArtistList';
 import Favorite from './Favorite';
@@ -40,8 +40,8 @@ const styles = StyleSheet.create(
             <Stack.Screen name="ArtistDetail" component={ArtistDetail} /> 
 </Stack.Navigator> */}
 
-const Stack = createNativeStackNavigator();
-const Tab = createMaterialTopTabNavigator();
+const Stack = createNativeStackNavigator<ArtistStackParamList>();
+const Tab = createMaterialTopTabNavigator<ArtistStackParamList>();
 
 const TabRoot = ()=>{
     let [serachingName,setSearchingName] = useState<string>('');
@@ -68,11 +68,9 @@ const TabRoot = ()=>{
 const Artist = ({}) =>{
     
     return (
-        <Stack.Navigator 
-        screenOptions={{
-            headerShown: false
-        }}>
-            <Stack.Screen name="TabRoot" component={TabRoot} />
+        <Stack.Navigator>
+            <Stack.Screen name="TabRoot" component={TabRoot} options={{headerShown:false}}/>
+            <Stack.Screen name="ArtDetail" component={ArtDetail} />
             <Stack.Screen name="ArtistDetail" component={ArtistDetail} />
             {/* <Stack.Screen name="ArtistList" component={ArtistList} />
             <Stack.Screen name="ArtistDetail" component={ArtistDetail} />  */}

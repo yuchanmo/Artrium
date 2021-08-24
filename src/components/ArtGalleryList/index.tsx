@@ -19,14 +19,13 @@ const styles = StyleSheet.create(({
 
 interface Props{
     Title:string;
-    onPress:()=>{}|undefined;
     // ApiBaseUrl:string;
     // route:RouteProp<ArtistStackParamList,"Favorite">;    
     navigation:NativeStackScreenProps<ArtistStackParamList,"Favorite">;    
 }
 
 
-const ArtDisplayList = ({Title,onPress,navigation}:Props) =>{
+const ArtGalleryList = ({Title,navigation}:Props) =>{
 
     const [data,setData] = useState<Array<ArtDisplayInfo>>([]);
 
@@ -43,7 +42,8 @@ const ArtDisplayList = ({Title,onPress,navigation}:Props) =>{
         } catch (error) {
             Alert.alert('info',error.message);
             Alert.alert('info',error.stack);
-        }      
+        }
+        
         
 
     };
@@ -71,4 +71,4 @@ const ArtDisplayList = ({Title,onPress,navigation}:Props) =>{
 
 };
 
-export default ArtDisplayList;
+export default ArtGalleryList;

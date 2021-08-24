@@ -10,3 +10,20 @@ https://reactnativeelements.com/docs/
 
 4. react-native-vector-icon 
  - 깨짐현상 : https://yannichoongs.tistory.com/260
+
+5. react-native  count down
+https://www.npmjs.com/package/react-native-countdown-component
+
+6.react-native-camera 
+https://github.com/react-native-camera/react-native-camera/issues/2843
+in android/app/build.gradle
+
+Add below line inside defaultConfig
+
+defaultConfig {
+...
+missingDimensionStrategy 'react-native-camera', 'general' // <--- insert this line
+}
+
+7.Chat
+https://www.youtube.com/watch?v=bGGeD5RkdzQ

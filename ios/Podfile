@@ -14,6 +14,8 @@ target 'Artrium' do
 
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
+  pod 'react-native-cameraroll', :path => '../node_modules/@react-native-community/cameraroll'
+
   target 'ArtriumTests' do
     inherit! :complete
     # Pods for testing

@@ -1,0 +1,39 @@
+<View style={styles.cotainer}>        
+          <View style={styles.imageContainer}>
+            <ImageBackground
+              source={{uri:Info.image_url}}
+              resizeMode="cover"
+              style={styles.image}
+              imageStyle={styles.image_imageStyle}
+            >    
+                  <TouchableOpacity style={styles.artistButton}>
+                      <Text style={styles.text}>{Info.artist_name_kor}</Text>
+                  </TouchableOpacity>         
+            </ImageBackground>
+          </View>
+          
+        <View style={styles.scrollArea}>
+          <ScrollView
+            horizontal={false}
+            
+          >
+            <View style={styles.descritionContainer}>
+              <View style={styles.overlay}>
+                    <View style={styles.artInfo}>
+                      <Text style={styles.scienceChannel}>{Info.title_eng}</Text>                                    
+                      <Text style={styles.followers}>Auction :  {Info.auction_place}</Text>
+                      <Text style={styles.followers}>Auction Date : {Info.auction_date}</Text>
+                      <Text style={styles.followers}>Price : {Info.money}</Text>
+                    </View>
+              </View>
+          </View>
+          <View>
+            <ArtDisplayList Title="Test" navigation={navigation}></ArtDisplayList>
+            <ArtDisplayList Title="Test" navigation={navigation}></ArtDisplayList>
+            <ArtDisplayList Title="Test" navigation={navigation}></ArtDisplayList>
+            <ArtDisplayList Title="Test" navigation={navigation}></ArtDisplayList>
+            <ArtDisplayList Title="Test" navigation={navigation}></ArtDisplayList>
+          </View>
+          </ScrollView>
+        </View>
+        </View>
