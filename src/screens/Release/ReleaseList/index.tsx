@@ -55,7 +55,7 @@ const ReleaseList = ({route,navigation}:Props) =>{
            
             <FlatList                   
                     data={data}
-                    renderItem={({index,item})=><><ReleaseThumnail ArtInfo={item}></ReleaseThumnail></>}
+                    renderItem={({index,item})=><><ReleaseThumnail ArtInfo={item} navigation={navigation}></ReleaseThumnail></>}
                     keyExtractor={(item,i) => item.title_eng + i.toString()}
                 />
              {/* <FlatList                   

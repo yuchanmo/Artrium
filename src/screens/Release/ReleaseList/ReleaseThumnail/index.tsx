@@ -11,6 +11,7 @@ import {
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import CountDown from 'react-native-countdown-component';
+import { RouteProp } from "@react-navigation/native";
 
 const styles = StyleSheet.create({
   container:{
@@ -74,17 +75,19 @@ const styles = StyleSheet.create({
 interface Props{
     ArtInfo : ArtDisplayInfo;
     onPress :()=>{}|undefined;
+    route : RouteProp<ReleaseStackParamList,"ReleaseList">
+    navigation:NativeStackScreenProps<ReleaseStackParamList,"ReleaseList">;    
     
 };
 
 // {ArtInfo}:Props
 
-const ReleaseThumnail = ({ArtInfo,onPress}:Props) =>{
+const ReleaseThumnail = ({ArtInfo,onPress,route,navigation}:Props) =>{
   let timeNumber:number = 100;
     useEffect(()=>{
       timeNumber = (Math.floor(Math.random() * 1001));
     },[]);
-    let imgPressFunction = onPress !== undefined ? onPress : () => {};
+    let imgPressFunction = onPress !== undefined ? onPress : () => {navigation.navigate('ReleaseDetail',{Info:ArtInfo})};
     return (
         <>
         <View style={styles.container}>

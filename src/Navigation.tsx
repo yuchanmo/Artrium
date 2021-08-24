@@ -29,7 +29,7 @@ const Navigation = ()=> {
               ? 'ios-information-circle'
               : 'ios-information-circle-outline';
           } 
-          else if (route.name === 'Notice') {
+          else if (route.name === 'Release') {
             iconName = focused ? 'ios-list-box' : 'ios-list';
           }
           else if (route.name === 'Home') {
