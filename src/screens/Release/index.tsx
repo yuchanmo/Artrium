@@ -12,15 +12,41 @@ import { SearchBar } from 'react-native-elements';
 
 const styles = StyleSheet.create(
     ({
-        searchbox:{
+        container:{
             flex:1
 
+        },
+        tabWrapContainer:{
+            flex:1
+        },
+        bannerContainer:{
+            flex:1
+        },
+        overlay: {
+            backgroundColor: "rgba(30,26,26,0.4)",
+            flex: 1
+  
+        },
+        tabScreenContainer:{
+            flex:7
+        },
+        artInfo:{
+            margin:20
+          },
+        artTitle: {
+            color: "rgba(255,255,255,1)",
+            fontSize: 24,            
+            alignSelf: "center"
+          }, 
+          artDescription: {
+            color: "rgba(255,255,255,1)",
+            fontSize: 16,
+          
+            alignSelf: "center"
           },
         contentsbox:{
-            flex:8
-
-          },
-
+        flex:8
+        },
     })
 );
 
@@ -28,15 +54,36 @@ const styles = StyleSheet.create(
 const Stack = createNativeStackNavigator<ReleaseStackParamList>();
 const Tab = createMaterialTopTabNavigator<ReleaseStackParamList>();
 
+
+const ReleaseBanner = ()=>{
+    return (
+        <>
+        <View style={styles.bannerContainer}>
+              <View style={styles.overlay}>
+                    <View style={styles.artInfo}>
+                      <Text style={styles.artTitle}>BANNER</Text>                                    
+                      
+                    </View>
+              </View>
+          </View>
+        </>
+    )
+}
+
 const TabRoot = ()=>{
     let [serachingName,setSearchingName] = useState<string>('');
     return (
         <>
-        <View style={styles.searchbox}>            
+        <View style={styles.container}> 
+            <View style={styles.bannerContainer}>
+                <ReleaseBanner></ReleaseBanner>
+            </View>
+            <View style={styles.tabScreenContainer}>
             <Tab.Navigator>
                 <Tab.Screen name="Upcoming" component={ReleaseList} />
                 <Tab.Screen name="Past" component={ReleaseList} />                
             </Tab.Navigator>
+            </View>
         </View>
         </>
     );

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -15,9 +15,10 @@ import CountDown from 'react-native-countdown-component';
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    width:'100%',
-    
+    width:'100%',    
+    height:200,
     margin: 3,
+    marginBottom:50
   },
   releaseInfoContainer:{
     height:40,
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
   },
   button2: {
     width:'100%',
-    height:250,
+    height:'100%',
     backgroundColor: "rgba(230, 230, 230,1)",
     elevation: 18,
     borderRadius: 5,
@@ -59,6 +60,15 @@ const styles = StyleSheet.create({
      bottom:0,
      right:70
     },
+    titleText: {
+      color: "black",
+      fontSize: 20,        
+    },
+    dateText:{
+      alignContent:'flex-end',
+      justifyContent:'flex-end',
+      alignItems:'flex-end'
+    }
   });
   
 interface Props{
@@ -70,16 +80,17 @@ interface Props{
 // {ArtInfo}:Props
 
 const ReleaseThumnail = ({ArtInfo,onPress}:Props) =>{
-    let timeRandom :number =Math.floor(Math.random() * 1001);
-
-    
+  let timeNumber:number = 100;
+    useEffect(()=>{
+      timeNumber = (Math.floor(Math.random() * 1001));
+    },[]);
     let imgPressFunction = onPress !== undefined ? onPress : () => {};
     return (
         <>
         <View style={styles.container}>
           <View style={styles.releaseInfoContainer}>
-              <Text>NAME</Text>
-              <Text>dATe</Text>
+            <Text style={styles.titleText}>{ArtInfo.artist_name_kor}</Text>
+            <Text style={styles.dateText}>{ArtInfo.auction_date}</Text>
           </View>
         <TouchableOpacity style={styles.button2} onPress={imgPressFunction}>       
            
@@ -92,7 +103,7 @@ const ReleaseThumnail = ({ArtInfo,onPress}:Props) =>{
               </ImageBackground>
               <View>
                 <CountDown style={styles.countDown}
-                    until={timeRandom}
+                    until={timeNumber}
                     
                     size={20}
                   />

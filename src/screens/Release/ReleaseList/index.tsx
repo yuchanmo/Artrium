@@ -52,7 +52,7 @@ const ReleaseList = ({route,navigation}:Props) =>{
     return (
     <>    
       <View style={styles.container}>
-            <Text style={styles.titleText}>TEST</Text>            
+           
             <FlatList                   
                     data={data}
                     renderItem={({index,item})=><><ReleaseThumnail ArtInfo={item}></ReleaseThumnail></>}
