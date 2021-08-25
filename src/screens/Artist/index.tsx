@@ -1,5 +1,5 @@
 import React,{useState,useEffect, useLayoutEffect} from 'react';
-import { Text, View,StyleSheet } from 'react-native';
+import { Text, View,StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -11,7 +11,7 @@ import ArtistList from './ArtistList';
 import Favorite from './Favorite';
 import Analysis from './Analysis';
 import EasyPick from './EasyPick';
-import { SearchBar } from 'react-native-elements';
+import { Searchbar  } from 'react-native-paper';
 
 
 const styles = StyleSheet.create(
@@ -43,16 +43,27 @@ const styles = StyleSheet.create(
 const Stack = createNativeStackNavigator<ArtistStackParamList>();
 const Tab = createMaterialTopTabNavigator<ArtistStackParamList>();
 
-const TabRoot = ()=>{
+const TabRoot = ({route,navigation})=>{
     let [serachingName,setSearchingName] = useState<string>('');
     return (
         <>
         <View style={styles.searchbox}>
-            <SearchBar 
-            placeholder="작가이름" 
-            value={serachingName} 
-            onChangeText={(v)=>{setSearchingName(v)}}
-            ></SearchBar>
+            <View>
+                <Searchbar  
+                    placeholder="작가이름" 
+                    value={serachingName} 
+                    onChangeText={(v)=>setSearchingName(v)} 
+                    onIconPress={()=>{
+                        if(serachingName.length>0){
+                            navigation.navigate('ArtistDetail',{name:serachingName})
+                        }
+                        else{
+                            Alert.alert('Notice','검색할 작가 이름을 입력하세요')
+                        }
+                    }}          
+                ></Searchbar>
+                
+            </View>
             <Tab.Navigator>
                 <Tab.Screen name="Favorite" component={Favorite} />
                 <Tab.Screen name="Analysis" component={Analysis} />

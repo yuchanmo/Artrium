@@ -7,3 +7,8 @@ interface ArtistInformation {
   ArtList: Array<ArtInformation>;
   UpdateDate: string;
 }
+
+interface ArtistInfo {
+  img_src: string;
+  description: string;
+}

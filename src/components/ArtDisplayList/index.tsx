@@ -6,6 +6,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import {  NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RouteProp } from '@react-navigation/native';
 import { Divider } from 'react-native-elements';
+import ApiUrl from '~/GlobalContant';
 
 const styles = StyleSheet.create(({
     container:{
@@ -32,7 +33,7 @@ const ArtDisplayList = ({Title,onPress,navigation}:Props) =>{
 
     const initData = async () =>{
         try {
-            let res = await RNFetchBlob.fetch('GET', 'http://20.85.245.228:9999/collection');
+            let res = await RNFetchBlob.fetch('GET', ApiUrl['collection']);
             let status = res.info().status;
             if(status == 200){
                                 

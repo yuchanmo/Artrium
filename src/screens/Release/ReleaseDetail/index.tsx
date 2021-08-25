@@ -115,12 +115,12 @@ interface Props{
 const ReleaseDetail = ({route,navigation}:Props) =>{
   const {Info} = route.params;
   useEffect(()=>{
-    Alert.alert('info',Info.title_kor);
+    //Alert.alert('info',Info.title_kor);
   },[]);
 
   useLayoutEffect(()=>{
     navigation.setOptions({
-      headerTitle:Info.artist_name_kor
+      headerTitle:"RELEASE DETAIL"
     });
   }, [navigation]);
 

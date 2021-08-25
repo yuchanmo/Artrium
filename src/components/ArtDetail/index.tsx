@@ -123,7 +123,7 @@ const ArtDetail = ({route,navigation}:Props) =>{
 
   useLayoutEffect(()=>{
     navigation.setOptions({
-      headerTitle:Info.artist_name_kor
+      headerTitle:"ART DETAIL"
     });
   }, [navigation]);
 
@@ -137,7 +137,7 @@ const ArtDetail = ({route,navigation}:Props) =>{
               style={styles.image}
               imageStyle={styles.image_imageStyle}
             >    
-                  <TouchableOpacity style={styles.artistButton}>
+                  <TouchableOpacity style={styles.artistButton} onPress={()=>{navigation.navigate("ArtistDetail",{name:Info.artist_name_kor})}}>
                       <Text style={styles.text}>{Info.artist_name_kor}</Text>
                   </TouchableOpacity>         
             </ImageBackground>
@@ -159,11 +159,9 @@ const ArtDetail = ({route,navigation}:Props) =>{
               </View>
           </View>
           <View>
-            <ArtDisplayList Title="Test" navigation={navigation}></ArtDisplayList>
-            <ArtDisplayList Title="Test" navigation={navigation}></ArtDisplayList>
-            <ArtDisplayList Title="Test" navigation={navigation}></ArtDisplayList>
-            <ArtDisplayList Title="Test" navigation={navigation}></ArtDisplayList>
-            <ArtDisplayList Title="Test" navigation={navigation}></ArtDisplayList>
+            <ArtDisplayList Title="Recommendation" navigation={navigation}></ArtDisplayList>
+            <ArtDisplayList Title="Similar" navigation={navigation}></ArtDisplayList>
+            <ArtDisplayList Title="Hot" navigation={navigation}></ArtDisplayList>
           </View>
           </ScrollView>
         </View>

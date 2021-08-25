@@ -7,7 +7,6 @@ import RNFetchBlob from 'rn-fetch-blob';
 import ApiUrl from '~/GlobalContant';
 const optionsPerPage = [2, 3, 4];
 
-
 const styles = StyleSheet.create(({
   container:{
       margin:7,
@@ -23,15 +22,15 @@ interface Props{
   route : RouteProp<ArtistStackParamList,"Analysis">
   navigation:NativeStackScreenProps<ArtistStackParamList,"Analysis">;
 }
-const FollowingArtist = ({Month,route,navigation}:Props) => {
-  
+
+const FavoriteRank = ({Month,route,navigation}:Props) => {
   const [page, setPage] = React.useState<number>(0);
   const [itemsPerPage, setItemsPerPage] = React.useState(optionsPerPage[0]);
-  const [data,setData] = React.useState<Array<SearchRank>>([]);
+  const [data,setData] = React.useState<Array<FavoriteRank>>([]);
 
   const initData = async () =>{
     try {
-        let res = await RNFetchBlob.fetch('GET', ApiUrl['searchrank']);
+        let res = await RNFetchBlob.fetch('GET', ApiUrl['favoriterank']);
         let status = res.info().status;
         if(status == 200){                            
             //let tmp:Array<ArtDisplayInfo> = [...data, res.data];
@@ -56,17 +55,19 @@ const FollowingArtist = ({Month,route,navigation}:Props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}>Following Artist</Text>
+      <Text style={styles.titleText}>인기 판매 작가</Text>
       <DataTable>
         <DataTable.Header>
           <DataTable.Title>Rank</DataTable.Title>
           <DataTable.Title>작가이름</DataTable.Title>          
+          <DataTable.Title>판매금액</DataTable.Title>          
         </DataTable.Header>
 
         {data.map((v,i)=>(
           <DataTable.Row key={v.rank + i.toString()} onPress={()=>navigation.navigate('ArtistDetail',{name:v.artist_name_kor})}>
             <DataTable.Cell>{v.rank}</DataTable.Cell>
             <DataTable.Cell>{v.artist_name_kor}</DataTable.Cell>          
+            <DataTable.Cell>{v.sum}</DataTable.Cell>          
           </DataTable.Row>
         ))}        
 
@@ -87,4 +88,4 @@ const FollowingArtist = ({Month,route,navigation}:Props) => {
   );
 }
 
-export default FollowingArtist;
+export default FavoriteRank;

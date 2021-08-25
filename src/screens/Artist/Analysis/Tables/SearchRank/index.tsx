@@ -5,6 +5,7 @@ import { Alert, StyleSheet, Text, View } from 'react-native';
 import { DataTable, Divider } from 'react-native-paper';
 import RNFetchBlob from 'rn-fetch-blob';
 import ApiUrl from '~/GlobalContant';
+
 const optionsPerPage = [2, 3, 4];
 
 
@@ -23,7 +24,7 @@ interface Props{
   route : RouteProp<ArtistStackParamList,"Analysis">
   navigation:NativeStackScreenProps<ArtistStackParamList,"Analysis">;
 }
-const FollowingArtist = ({Month,route,navigation}:Props) => {
+const SearchRank = ({Month,route,navigation}:Props) => {
   
   const [page, setPage] = React.useState<number>(0);
   const [itemsPerPage, setItemsPerPage] = React.useState(optionsPerPage[0]);
@@ -56,7 +57,7 @@ const FollowingArtist = ({Month,route,navigation}:Props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}>Following Artist</Text>
+      <Text style={styles.titleText}>인기 검색 작가</Text>
       <DataTable>
         <DataTable.Header>
           <DataTable.Title>Rank</DataTable.Title>
@@ -87,4 +88,4 @@ const FollowingArtist = ({Month,route,navigation}:Props) => {
   );
 }
 
-export default FollowingArtist;
+export default SearchRank;

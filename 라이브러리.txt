@@ -36,3 +36,9 @@ missingDimensionStrategy 'react-native-camera', 'general' // <--- insert this li
 7.Chat
 https://www.youtube.com/watch?v=bGGeD5RkdzQ
 
+8. https://www.npmjs.com/package/react-native-charts-wrapper
+https://webhotpy.tistory.com/30
+에러의 문제는 폴더가 없다는 것이 었다.
+
+
+경로에 없는 폴더들을 이름에 맞게 생성하여주고 다시 실행하였더니 정상적으로 실행 되었다.

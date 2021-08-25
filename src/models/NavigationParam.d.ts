@@ -21,7 +21,8 @@ type ArtistStackParamList = {
     // PrevNavigation: NativeStackScreenProps<ArtistStackParamList, 'ArtDetail'>;
   };
   TabRoot: undefined;
-  ArtistDetail: undefined;
+  ArtistDetail: {name: string};
+  ArtistDescription: {artistinfo: ArtistInfo};
   Favorite: undefined;
   Analysis: undefined;
   EasyPick: undefined;
