@@ -114,9 +114,12 @@ interface Props{
 
 const ArtDetail = ({route,navigation}:Props) =>{
   const {Info} = route.params;
+  const [headerTitle,setHeaderTitle] = useState<string>('');
+  
   useEffect(()=>{
-    Alert.alert('info',Info.title_kor);
-  },[]);
+    //Alert.alert('info',Info.title_kor);
+    setHeaderTitle(Info.artist_name_kor);
+  },[Info]);
 
   useLayoutEffect(()=>{
     navigation.setOptions({
