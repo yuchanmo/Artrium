@@ -65,9 +65,9 @@ const TabRoot = ({route,navigation})=>{
                 
             </View>
             <Tab.Navigator>
-                <Tab.Screen name="Favorite" component={Favorite} />
-                <Tab.Screen name="Analysis" component={Analysis} />
-                <Tab.Screen name="EasyPick" component={EasyPick} />
+                <Tab.Screen name="Favorite" component={Favorite} options={{swipeEnabled:false}} />
+                <Tab.Screen name="Analysis" component={Analysis} options={{swipeEnabled:false}}/>
+                <Tab.Screen name="EasyPick" component={EasyPick} options={{swipeEnabled:false}}/>
             </Tab.Navigator>
         </View>
         </>

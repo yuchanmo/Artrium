@@ -1,13 +1,21 @@
 import React,{useState,useEffect, useLayoutEffect} from 'react';
-import { Text, View,StyleSheet, Alert } from 'react-native';
+import { Text, View,StyleSheet, Alert, ScrollView } from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
 import ApiUrl from '~/GlobalContant';
+import ZeroLineChartScreen from './AxisLineChartScreen';
+import LineChartScreen from './LineChartScreen';
+import StackedBarChartScreen from './StackBarChart';
+import PieChartScreen from './StockChartScreen';
+
+
 
 const styles = StyleSheet.create(
     ({
         cotainer:{
-            flex:1
+            flex:1,
+            width:'100%'
         },
+        
         
 
     })
@@ -32,9 +40,12 @@ const ArtistTrend = ({}) =>{
     };
     return (
         <>
-        <View>
-            <Text>Art</Text>
-        </View>
+        <ScrollView style={styles.cotainer}>
+            <LineChartScreen></LineChartScreen>
+            <PieChartScreen></PieChartScreen>
+            <ZeroLineChartScreen></ZeroLineChartScreen>
+            <StackedBarChartScreen></StackedBarChartScreen>
+        </ScrollView>
         </>
         
     );

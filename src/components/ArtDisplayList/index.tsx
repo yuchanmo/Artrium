@@ -21,25 +21,26 @@ const styles = StyleSheet.create(({
 interface Props{
     Title:string;
     onPress:()=>{}|undefined;
-    // ApiBaseUrl:string;
+    ApiBaseUrl:string|undefined;
     // route:RouteProp<ArtistStackParamList,"Favorite">;    
     navigation:NativeStackScreenProps<ArtistStackParamList,"Favorite">;    
 }
 
 
-const ArtDisplayList = ({Title,onPress,navigation}:Props) =>{
+const ArtDisplayList = ({Title,ApiBaseUrl,onPress,navigation}:Props) =>{
 
     const [data,setData] = useState<Array<ArtDisplayInfo>>([]);
-
+    const url = ApiBaseUrl === undefined? ApiUrl['collection'] : ApiBaseUrl;
     const initData = async () =>{
         try {
-            let res = await RNFetchBlob.fetch('GET', ApiUrl['collection']);
+            let res = await RNFetchBlob.fetch('GET', url);
             let status = res.info().status;
             if(status == 200){
                                 
                 //let tmp:Array<ArtDisplayInfo> = [...data, res.data];
                 setData(res.json());
             }
+            
             
         } catch (error) {
             Alert.alert('info',error.message);

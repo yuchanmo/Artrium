@@ -7,6 +7,7 @@ const ApiUrl ={
     searchrank: `${BaseUrl}/searchrank`,
     favoriterank: `${BaseUrl}/favoriterank`,
     artistinfo: `${BaseUrl}/artistinfo`,
+    arts:`${BaseUrl}/arts`
 
 };
 

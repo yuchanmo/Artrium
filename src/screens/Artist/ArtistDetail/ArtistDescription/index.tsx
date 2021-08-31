@@ -3,6 +3,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React,{useState,useEffect, useLayoutEffect} from 'react';
 import { Text, View,StyleSheet, ScrollView } from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
+import ArtDisplayList from '~/components/ArtDisplayList';
 import ApiUrl from '~/GlobalContant';
 
 const styles = StyleSheet.create(
@@ -31,6 +32,7 @@ interface Props{
 const ArtistDescription = ({route,navigation}:Props) =>{
     const {name} = route.params;
     const [artist,setArtist] = useState<ArtistInfo>();
+    let artsUrl = `${ApiUrl['arts']}?artistname=${encodeURI(name)}`;
     const getArtist = async ()=>{
         let res = await RNFetchBlob.fetch('GET', ApiUrl['artistinfo']);
             let status = res.info().status;
@@ -49,6 +51,7 @@ const ArtistDescription = ({route,navigation}:Props) =>{
         <>       
             <ScrollView style={styles.container}>
                 <Text style={styles.descriptionText}>{artist?.description}</Text>
+                <ArtDisplayList Title={"작가의 작품"} ApiBaseUrl={artsUrl} navigation={navigation}></ArtDisplayList>
             </ScrollView>  
         </>
         

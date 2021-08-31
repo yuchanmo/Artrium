@@ -7,19 +7,35 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Release from '~/screens/Release';
 import Art from '~/screens/Art';
 import Artist from '~/screens/Artist';
-import Login from '~/screens/Login';
+import Login from '~/screens/SignIn';
 import Home from '~/screens/Home';
 import My from '~/screens/My';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SignIn from '~/screens/SignIn';
+import SignUp from './screens/SignUp';
+import { SignContext } from '~/context/SignContext';
 
+const RootStack = createNativeStackNavigator();
+const SignStack = createNativeStackNavigator();
+const MainTab = createBottomTabNavigator();
 
-
-const Tab = createBottomTabNavigator();
-
-const Navigation = ()=> {
+//회원가입 / 로그인관련
+const StackSign = ()=>{
   return (
-    <NavigationContainer>
-      {/* <Tab.Navigator  screenOptions={{ headerShown: false }}>         */}
-      <Tab.Navigator  
+    <>
+    <SignStack.Navigator>
+      <SignStack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}/>
+      <SignStack.Screen name="SignUp" component={SignUp} options={{headerShown:false}}/>
+    </SignStack.Navigator>
+    </>
+  )
+}
+
+//Program Main
+const TabMain = ()=>{
+  return (
+    <>
+    <MainTab.Navigator  
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -49,13 +65,30 @@ const Navigation = ()=> {
         tabBarInactiveTintColor: 'gray',
         headerShown: false
       })}>
-        <Tab.Screen name="Artist" component={Artist} />
-        <Tab.Screen name="Release" component={Release} />        
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Art" component={Art} />
-        <Tab.Screen name="My" component={My} />       
-        
-      </Tab.Navigator>
+        <MainTab.Screen name="Artist" component={Artist} />
+        <MainTab.Screen name="Release" component={Release} />        
+        {/* <MainTab.Screen name="Home" component={Home} /> */}
+        <MainTab.Screen name="Art" component={Art} />
+        {/* <MainTab.Screen name="My" component={My} />   */}
+      </MainTab.Navigator>
+    </>
+  )
+}
+
+const Navigation = ()=> {
+  const {isSigned,trySignIn} = React.useContext<ISignContext>(SignContext);
+  let [isSignedIn,setSignedIn] = React.useState<boolean>(false);
+  return (
+    <NavigationContainer>
+      <RootStack.Navigator>
+        {
+          !isSigned ?(       
+            <RootStack.Screen name="StackSign" component={StackSign} options={{headerShown:false}}/>        
+          ) : (        
+            <RootStack.Screen name="TabMain" component={TabMain} options={{headerShown:false}}/>        
+          )
+          }      
+      </RootStack.Navigator>
     </NavigationContainer>
   );
 }

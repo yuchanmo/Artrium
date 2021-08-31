@@ -27,7 +27,7 @@ const styles = StyleSheet.create(
             shadowRadius: 5
           },
           body: {
-            backgroundColor: "#67568f",
+            backgroundColor: "#b9d5f5",
             
             flex: 1
           },
@@ -190,8 +190,8 @@ const styles = StyleSheet.create(
           },
           detailScroll:{
             flex:5,
-            padding:10,
-            margin:10
+            padding:5,
+            margin:5
 
           },
           userInfo: {
@@ -287,7 +287,7 @@ const ArtistDetail = ({route,navigation}:Props) =>{
     return (
         <> 
         <View style={styles.body}>
-        <Svg viewBox="0 0 859.43 890.3" style={styles.ellipse}>
+        {/* <Svg viewBox="0 0 859.43 890.3" style={styles.ellipse}>
             <Ellipse
               strokeWidth={1}
               fill="#e8ebee"
@@ -296,7 +296,7 @@ const ArtistDetail = ({route,navigation}:Props) =>{
               rx={460}
               ry={450}
             ></Ellipse>
-          </Svg>
+          </Svg> */}
               
           <View style={styles.userInfo}>
             <View style={styles.avatarRow}>
@@ -313,8 +313,8 @@ const ArtistDetail = ({route,navigation}:Props) =>{
           <View style={styles.detailScroll}>
             <Tab.Navigator>
                   {/* <Tab.Screen name="DESCRIPTION" component={ArtistDescription} initialParams={{ artistinfo: artist }}/> */}
-                  <Tab.Screen name="DESCRIPTION" component={ArtistDescription} initialParams={{ name: name }}/>
-                  <Tab.Screen name="TREND" component={ArtistTrend} initialParams={{ name: name }}/>                
+                  <Tab.Screen name="DESCRIPTION" component={ArtistDescription} initialParams={{ name: name }} options={{swipeEnabled:false}}/>
+                  <Tab.Screen name="TREND" component={ArtistTrend} initialParams={{ name: name }} options={{swipeEnabled:false}}/>                
             </Tab.Navigator>            
           </View>
         </View>

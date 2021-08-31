@@ -10,14 +10,13 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 function SignUp(props) {
   return (
-    <View style={styles.rect}>
-      <StatusBar hidden />
+    <View style={styles.rect}>      
       <View style={styles.textColumn}>
         <Text style={styles.text}>
           See what&#39;s happening in the world right now.
         </Text>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("Signup")}
+          onPress={() => props.navigation.navigate("SignUp")}
           style={styles.button}
         >
           <Text style={styles.text2}>Create account</Text>
@@ -26,7 +25,11 @@ function SignUp(props) {
       </View>
       <View style={styles.textColumnFiller}></View>
       <View style={styles.rect2}>
+      <TouchableOpacity
+          onPress={() => props.navigation.navigate("SignIn")}          
+        >
         <Text style={styles.text3}>Have an account already?</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
