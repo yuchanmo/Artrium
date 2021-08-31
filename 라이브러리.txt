@@ -42,3 +42,11 @@ https://webhotpy.tistory.com/30
 
 
 경로에 없는 폴더들을 이름에 맞게 생성하여주고 다시 실행하였더니 정상적으로 실행 되었다.
+
+9. kakao login
+https://github.com/react-native-seoul/react-native-kakao-login
+
+10. https://hossein-zare.github.io/react-native-dropdown-picker-website/
+
+11. 채팅방 db설계
+https://salepark.tistory.com/76
