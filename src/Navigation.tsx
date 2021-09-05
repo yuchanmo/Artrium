@@ -69,7 +69,7 @@ const TabMain = ()=>{
         <MainTab.Screen name="Release" component={Release} />        
         {/* <MainTab.Screen name="Home" component={Home} /> */}
         <MainTab.Screen name="Art" component={Art} />
-        {/* <MainTab.Screen name="My" component={My} />   */}
+        <MainTab.Screen name="My" component={My} />  
       </MainTab.Navigator>
     </>
   )

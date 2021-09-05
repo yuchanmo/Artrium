@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import React, { Component, useContext, useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -7,74 +7,149 @@ import {
   TouchableOpacity,
   TextInput,
   ImageBackground,
-  Image
+  Image,
+  Button,
+  Alert
 } from "react-native";
+import {
+  KakaoOAuthToken,
+  KakaoProfile,
+  getProfile as getKakaoProfile,
+  login,
+  logout,
+  unlink,
+} from '@react-native-seoul/kakao-login';
+
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import { Divider } from "react-native-paper";
 
 import {SignContext} from '~/context/SignContext';
+// import { GoogleSignin } from '@react-native-community/google-signin';
+// import auth from "@react-native-firebase/auth";
+
 
 function SignIn(props) {
+  // 카카오테스트코드
+  // const [result, setResult] = useState<string>('');
+
+  // const signInWithKakao = async (): Promise<void> => {
+  //   try{
+  //     const token: KakaoOAuthToken = await login();
+  //     Alert.alert('info',JSON.stringify(token));
+  //     setResult(JSON.stringify(token));
+  //   }
+  //   catch(err)
+  //   {
+  //     Alert.alert('info',err.toString());
+  //   }
+    
+  // };
+
+  // const signOutWithKakao = async (): Promise<void> => {  
+  //   try{
+  //     const message = await logout();
+
+  //     setResult(message);
+      
+  //     Alert.alert('info',message);
+      
+  //   }
+  //   catch(err)
+  //   {
+  //     Alert.alert('info',err.toString());
+  //   }
+  // };
+
+  // const getProfile = async (): Promise<void> => {
+  //   try{
+  //   const profile: KakaoProfile = await getKakaoProfile();
+  //   Alert.alert('info',JSON.stringify(profile));
+  //   setResult(JSON.stringify(profile));
+  //   }
+  //   catch(err)
+  //   {
+  //     Alert.alert('info',err.toString());
+  //   }
+  // };
+
+  // const unlinkKakao = async (): Promise<void> => {
+  //   try{
+  //     const message = await unlink();
+
+  //   setResult(message);
+     
+  //     Alert.alert('info',message);
+      
+  //     }
+  //     catch(err)
+  //     {
+  //       Alert.alert('info',err.toString());
+  //     }
+  //   const message = await unlink();
+
+  //   setResult(message);
+  // };
+
+  // return (
+  //   <View style={{flex:1}}>
+  //     <View style={{flex:5}}>
+  //       <Text>{result}</Text>
+  //       </View>
+  //       <View style={{flex:3}}>
+  //         <Button title={'login'} onPress={()=>signInWithKakao()}></Button>
+  //         <Button title={'signout'} onPress={()=>signOutWithKakao()}></Button>
+  //         <Button title={'profile'} onPress={()=>getProfile()}></Button>
+  //         <Button title={'unlink'} onPress={()=>unlinkKakao()}></Button>
+  //     </View>
+  //     </View>
+
+  // );
+
   const {isSigned,trySignIn} = useContext<ISignContext>(SignContext);
+  
+  // useEffect(() => {
+  //   const socialGoogleConfigure = async () => {
+  //     await GoogleSignin.configure({
+  //       webClientId: "117739553173-09d7gpt5u1s3l0ud668vsppd8s5gahal.apps.googleusercontent.com"
+  //     });
+  //   };
+  //   socialGoogleConfigure();
+  // }, []);  
+
+  // const onGoogleButtonPress = async () => {
+  //   const { idToken } = await GoogleSignin.signIn();
+  //   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+  //   return auth().signInWithCredential(googleCredential);
+  // };
+
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image style={styles.img} source={require('./icon.png')}></Image>
+        {/* <Image style={styles.img} source={require('./icon.png')}></Image> */}
       </View>
       <View style={styles.btn}>
-        <TouchableOpacity
-          onPress={() => trySignIn()}
+        {/* <TouchableOpacity
+          onPress={onGoogleButtonPress}
            style={styles.button2}
          >
-         <Text style={styles.text6}>Log in</Text>
+         <Text style={styles.text6}>Google</Text>
+        </TouchableOpacity> */}
+        <TouchableOpacity
+          onPress={() => trySignIn(1)}
+           style={styles.button2}
+         >
+         <Text style={styles.text6}>CHO</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => trySignIn(2)}
+           style={styles.button2}
+         >
+         <Text style={styles.text6}>MO</Text>
         </TouchableOpacity>
       </View>
     </View>
-    // <View style={styles.rect}>      
-    //   <View style={styles.textColumn}>
-    //     <Text style={styles.text}>Log In</Text>
-    //     <View style={styles.rect2}>
-          
-    //       <View style={styles.iconFiller}></View>
-    //       <View style={styles.rect3}>
-    //         <View style={styles.buttonRow}>
-    //           <TouchableOpacity
-    //             onPress={() => props.navigation.navigate("SignUp")}
-    //             style={styles.button}
-    //           >
-    //             <Text style={styles.text2}>Sign up</Text>
-    //           </TouchableOpacity>
-    //           <EntypoIcon
-    //             name="dots-three-vertical"
-    //             style={styles.icon2}
-    //           ></EntypoIcon>
-    //         </View>
-    //       </View>
-    //     </View>
-    //     <Text style={styles.text3}>
-    //       Phone number, email address, or username
-    //     </Text>
-    //     <Text style={styles.text4}>Password</Text>
-    //     <TextInput
-    //       placeholder=""
-    //       secureTextEntry={true}
-    //       style={styles.textInput}
-    //     ></TextInput>
-    //     <Text style={styles.text5}>Forgotten your password?</Text>
-    //     <TextInput placeholder="" style={styles.textInput2}></TextInput>
-    //   </View>
-    //   <View style={styles.textColumnFiller}></View>
-    //   <View style={styles.rect4}>
-    //     <Divider style={styles.divider}></Divider>
-    //     <TouchableOpacity
-    //       onPress={() => trySignIn()}
-    //       style={styles.button2}
-    //     >
-    //       <Text style={styles.text6}>Log in</Text>
-    //     </TouchableOpacity>
-    //   </View>
-    // </View>
+    
   );
 }
 
@@ -83,7 +158,7 @@ const styles = StyleSheet.create({
     flex:1
   },
   imageContainer:{
-    flex:4,
+    flex:2,
     justifyContent:'center',
     alignContent:'center',
     alignItems:'center',

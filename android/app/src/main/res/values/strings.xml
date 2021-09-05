@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Artrium</string>
+    <string name="kakao_app_key">35f56bdb05f2ab7bc919b360f8d4c182</string>
 </resources>

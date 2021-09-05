@@ -12,6 +12,12 @@ type ReleaseStackParamList = {
   ReleaseList: {option: string};
 };
 
+type MyStackParamList = {
+  Profile: undefined;
+  NewArtist: undefined;
+  MyCollection: undefined;
+};
+
 type ArtistStackParamList = {
   ArtistList: undefined;
   ArtDisplay: undefined;

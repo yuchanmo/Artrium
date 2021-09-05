@@ -1,5 +1,6 @@
 interface ISignContext {
+  userid: number;
   isSigned: boolean;
-  trySignIn: () => void;
+  trySignIn: (id: number) => void;
   trySignUp: () => void;
 }
