@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "117739553173",
+    "project_id": "ssarthree-89cd5",
+    "storage_bucket": "ssarthree-89cd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117739553173:android:23600e67648f7e05f8b69c",
+        "android_client_info": {
+          "package_name": "com.artrium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117739553173-l69rd1j3r6mukhrsneq40veui8pj71s0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.artrium",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "117739553173-09d7gpt5u1s3l0ud668vsppd8s5gahal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHDtS_lajeSB0rnzRac_cbOMAGxE-aPNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117739553173-09d7gpt5u1s3l0ud668vsppd8s5gahal.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
