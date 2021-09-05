@@ -256,7 +256,6 @@ const Tab = createMaterialTopTabNavigator();
 
 interface Props{   
     // ApiBaseUrl:string;
-
     route:RouteProp<ArtistStackParamList,"ArtistDetail">;     
     navigation:NativeStackScreenProps<ArtistStackParamList,"ArtistDetail">;    
 }
