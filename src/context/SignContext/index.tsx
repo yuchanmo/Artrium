@@ -5,7 +5,7 @@ interface Props{
 }
 
 const SignContext = createContext<ISignContext>({
-    userid: 0,
+    userId: 0,
     isSigned : false,
     trySignIn : (id:number):void =>{},
     trySignUp :():void => {},
@@ -29,7 +29,7 @@ const SignContextProvider = ({children}:Props)=>{
 
     return (
         <SignContext.Provider
-        value={{isSigned,trySignIn,trySignUp}}>
+        value={{userId,isSigned,trySignIn,trySignUp}}>
             {children}
         </SignContext.Provider>
     );

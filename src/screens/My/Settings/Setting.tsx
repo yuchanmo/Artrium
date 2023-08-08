@@ -96,6 +96,16 @@ const SettingsScreen = (data:Props)=>{
             <ListItem.Chevron />
           </ListItem>
           </TouchableOpacity>
+          <TouchableOpacity onPress={()=>{data.navigation.navigate('Test')}}>
+          <ListItem bottomDivider>
+            <Icon name={ 'av-timer'} />
+            <ListItem.Content>
+              <ListItem.Title>TEST</ListItem.Title>
+              <ListItem.Subtitle>(신인작가)</ListItem.Subtitle>
+            </ListItem.Content>
+            <ListItem.Chevron />
+          </ListItem>
+          </TouchableOpacity>
           {/* <ListItem
             hideChevron
             title="Push Notifications"

@@ -41,10 +41,11 @@ const ArtistTrend = ({}) =>{
     return (
         <>
         <ScrollView style={styles.cotainer}>
-            <LineChartScreen></LineChartScreen>
+            <Text>Hello</Text>
+            {/* <LineChartScreen></LineChartScreen>
             <PieChartScreen></PieChartScreen>
             <ZeroLineChartScreen></ZeroLineChartScreen>
-            <StackedBarChartScreen></StackedBarChartScreen>
+            <StackedBarChartScreen></StackedBarChartScreen> */}
         </ScrollView>
         </>
         

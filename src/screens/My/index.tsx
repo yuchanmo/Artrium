@@ -5,13 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import MyCollection from './MyCollection';
+import MyCollection from './MyCollection/Register';
 import NewArtist from './NewArtist';
 import Profile from '~/screens/My/Settings/index';
-// import Profile2 from './Profile2/Profile';
-// import Profile3 from './Profile3/Profile';
+import Test from './Test';
+//import Profile1 from '~/screens/My/Profile1/index';
 
-import contactData from './contact.json';
 
 
 
@@ -70,6 +69,7 @@ const My = ({}) =>{
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="MyCollection" component={MyCollection} />         
             <Stack.Screen name="NewArtist" component={NewArtist} />         
+            <Stack.Screen name="Test" component={Test} />         
                    
         </Stack.Navigator> 
         

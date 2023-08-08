@@ -48,7 +48,7 @@ const SignIn = ({route,navigation}:Props)=>{
           source={require("~/assets/clips/clip.mp4")}
           style={styles.backgroundVideo}
           muted={true}
-          repeat={true}**
+          repeat={true}
           resizeMode={"cover"}
           rate={1.0}
           ignoreSilentSwitch={"obey"}

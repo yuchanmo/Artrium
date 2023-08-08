@@ -75,8 +75,7 @@ const ArtDisplay = ({ArtInfo,onPress, navigation}:Props) =>{
                 <View style={styles.rect8}>
                    <Text style={styles.text22}>{ArtInfo.artist_name_kor}</Text>
                   <Text style={styles.text22}>{ArtInfo.make_year}</Text>
-                  <Text style={styles.text22}>{ArtInfo.money}</Text>
-                  
+                  <Text style={styles.text22}>{ArtInfo.money}</Text>                  
                 </View>
               </ImageBackground>
             </TouchableOpacity>

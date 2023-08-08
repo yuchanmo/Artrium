@@ -1,5 +1,12 @@
 // import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
+type RootStackParamList ={
+  SignIn:undefined;
+  SignUp:undefined;
+  TabMain:undefined;
+
+};
+
 type ArtistTabParamList = {
   Favorite: undefined;
   Analysis: undefined;
@@ -16,6 +23,7 @@ type MyStackParamList = {
   Profile: undefined;
   NewArtist: undefined;
   MyCollection: undefined;
+  Test:undefined;
 };
 
 type ArtistStackParamList = {

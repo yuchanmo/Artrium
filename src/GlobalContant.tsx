@@ -1,4 +1,5 @@
-const BaseUrl = 'http://20.85.245.228:9999';
+//const BaseUrl = 'http://localhost:5000';
+const BaseUrl = 'http://10.0.2.2:5000';
 const ApiUrl ={
     collection : `${BaseUrl}/collection`,
     artist: `${BaseUrl}/collection`,
@@ -7,7 +8,8 @@ const ApiUrl ={
     searchrank: `${BaseUrl}/searchrank`,
     favoriterank: `${BaseUrl}/favoriterank`,
     artistinfo: `${BaseUrl}/artistinfo`,
-    arts:`${BaseUrl}/arts`
+    arts:`${BaseUrl}/arts`,
+    mycollection: `${BaseUrl}/mycollection`,
 
 };
 
